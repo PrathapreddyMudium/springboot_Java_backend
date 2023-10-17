@@ -12,9 +12,9 @@ public class TeamMapper {
     public static TeamDto mapToTeamDto(TeamsEntity teamsEntity)
     {
         byte[] imageData = teamsEntity.getImage(); // Your byte array
-        String name = "imageField"; // Field name
-        String originalFilename = "image.jpg"; // Original filename
-        String contentType = "image/jpeg"; // Content type
+        String name = "author1"; // Field name
+        String originalFilename = "author1.jpg"; // Original filename
+        String contentType = "image/jpg"; // Content type
 
         MultipartFile multipartFile = new ByteArrayMultipartFile(name, originalFilename, contentType, imageData);
 
