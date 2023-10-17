@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/corporate.application/corporate.application/corporate.application.iml" filepath="$PROJECT_DIR$/corporate.application/corporate.application/corporate.application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/springboot_Java_backend.iml" filepath="$PROJECT_DIR$/.idea/springboot_Java_backend.iml" />
+    </modules>
+  </component>
+</project>
