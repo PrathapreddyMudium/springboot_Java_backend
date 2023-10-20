@@ -7,6 +7,8 @@ import org.vinrays.corporate.application.dto.TeamDto;
 import org.vinrays.corporate.application.mapper.TeamMapper;
 import org.vinrays.corporate.application.model.TeamsEntity;
 import org.vinrays.corporate.application.service.TeamsService;
+import org.vinrays.corporate.application.util.FileService;
+
 import java.io.IOException;
 
 @RestController
@@ -15,8 +17,12 @@ public class TeamsController {
     @Autowired
     private TeamsService teamsService;
 
+    FileService fileService = new FileService();
+
     @PostMapping("/team")
     public ResponseEntity<String> saveTeamMember(@ModelAttribute TeamDto teamDto) throws IOException {
+        System.out.println(teamDto.getImage().getBytes().length);
+        fileService.writeBytesToFile(teamDto.getImage().getBytes(),"C:\\Users\\pmudium\\Desktop\\SpringBoot\\test_postman.jpg");
         TeamsEntity teamsEntity = new TeamsEntity(
                 teamDto.getId(),
                 teamDto.getImage().getBytes(),
@@ -32,9 +38,11 @@ public class TeamsController {
     }
 
     @GetMapping("/team/{id}")
-    public TeamDto getTeamMemberInfo(@PathVariable Long id)
-    {
+    public TeamsEntity getTeamMemberInfo(@PathVariable Long id) throws IOException {
         TeamsEntity teamsEntity = teamsService.getTeamMemberById(id);
-        return TeamMapper.mapToTeamDto(teamsEntity);
+        System.out.println(teamsEntity.getImage().length);
+        fileService.writeBytesToFile(teamsEntity.getImage(),"C:\\Users\\pmudium\\Desktop\\SpringBoot\\test_db.jpg");
+        //return TeamMapper.mapToTeamDto(teamsEntity);
+        return teamsEntity;
     }
 }

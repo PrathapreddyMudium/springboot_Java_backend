@@ -23,7 +23,6 @@ public class TeamsService implements Teams {
     @Override
     public TeamsEntity getTeamMemberById(Long id) {
         Optional<TeamsEntity> teamsEntity = teamsRepository.findById(id);
-        System.out.println(teamsEntity);
         TeamsEntity teamsEntity1 =  teamsEntity.get();
         return teamsEntity1;
     }

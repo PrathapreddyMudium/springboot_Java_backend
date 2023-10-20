@@ -17,6 +17,7 @@ public class TeamsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Lob
+    @Column(name = "image", columnDefinition = "LONGBLOB")
     private byte[] image;
     @Column(unique = true)
     private String fbLink;
